@@ -14,13 +14,24 @@ The mkdir command is used to create a new directory under any directory.
 $ mkdir dir1 dir2 dir3
 ```
 
+
 ## 3) rmdir
 
 The mkdir command is used to create a new directory under any directory.<br>
 rmdir -p command will delete a directory including its sub-directories all at once
 
 ```bash
-$ rmdir dir1 dir2 dir3
+$ mkdir dir1 dir2 dir3
+$ rmdir -p
+```
+
+## 3) rmdir
+
+The mkdir command is used to create a new directory under any directory.<br>
+rmdir -p command will delete a directory including its sub-directories all at once
+
+```bash
+$ mkdir dir1 dir2 dir3
 $ rmdir -p
 ```
 ## 4) ls
@@ -145,33 +156,210 @@ $ tail <file name>
 $ tail file1 file2
 $ tail -n <file name>  
 ```
-## 14) ps 
+## 14) tac  
 
-ps for viewing information related with the processes on a system which stands as abbreviation for “Process Status”. 
+The tac command is the reverse of cat command, as its name specified. It displays the file content in reverse order (from the last line).
 ```bash
-$ ps  
-```
-
-## 15) pid
-pidof command is used to find out the process IDs of a specific running program
-```bash
-$ pidof chrome
-```
-## 16) Kill
-kill command in Linux (located in /bin/kill), is a built-in command which is used to terminate processes manually. kill command sends a signal to a process which terminates the process 
-```bash
-$ kill <process_isd>
-```
-## 17) chown
-Chown command is used to change the file Owner or group. Whenever you want to change ownership you can use chown command. 
-```bash
-chown [OPTION]… [OWNER][:[GROUP]] FILE… 
-chown [OPTION]… –reference=RFILE FILE… 
+$ tac file 
 ```
 
-## 18)chgrp
-chgrp command in Linux is used to change the group ownership of a file or directory. All files in Linux belong to an owner and a group. You can set the owner by using “chown” command, and the group by the “chgrp” command. 
+## 15) more 
+
+The more command is quite similar to the cat command, as it is used to display the file content in the same way that the cat command does. The only difference between both commands is that, in case of larger files, the more command displays screenful output at a time.<br>
+In more command, the following keys are used to scroll the page:<br>
+ENTER key: To scroll down page by line.<br>
+Space bar: To move to the next page.<br>
+b key: To move to the previous page.<br>
+/ key: To search the string.<br>
 ```bash
-chgrp [OPTION]… GROUP FILE… 
-chgrp [OPTION]… –reference=RFILE FILE… 
+$ more <file name>  
+```
+## 16) less 
+
+The less command is similar to the more command. It also includes some extra features such as 'adjustment in width and height of the terminal.' Comparatively, the more command cuts the output in the width of the terminal.
+```bash
+$ less file
+```
+
+## 17) su
+
+The su command provides administrative access to another user. In other words, it allows access of the Linux shell to another user.
+```bash
+$ su user 
+```
+
+## 18) id 
+
+The id command is used to display the user ID (UID) and group ID (GID).
+```bash
+$ id
+```  
+
+## 19) useradd 
+
+The useradd command is used to add or remove a user on a Linux server.
+```bash
+$ useradd  username  
+```
+## 20) passwd 
+
+The passwd command is used to create and change the password for a user.
+```bash
+$ passwd username
+```
+## 21) groupadd 
+
+The groupadd command is used to create a user group.
+```bash
+$ groupadd group name
+``` 
+
+## 22) cut 
+
+The cut command is used to select a specific column of a file. The '-d' option is used as a delimiter, and it can be a space (' '), a slash (/), a hyphen (-), or anything else. And, the '-f' option is used to specify a column number.
+```bash
+$ cut -d(delimiter) -f(columnNumber) fileName
+```
+
+## 23) grep 
+
+The grep is the most powerful and used filter in a Linux system. The 'grep' stands for "global regular expression print." It is useful for searching the content from a file. Generally, it is used with the pipe.
+```bash
+$ cat file | grep <searchWord>  
+```
+
+## 24) comm 
+
+The 'comm' command is used to compare two files or streams. By default, it displays three columns, first displays non-matching items of the first file, second indicates the non-matching item of the second file, and the third column displays the matching items of both files.
+```bash
+$ comm file1 file2  
+```
+
+## 25) sed 
+
+The sed command is also known as stream editor. It is used to edit files using a regular expression. It does not permanently edit files; instead, the edited content remains only on display. It does not affect the actual file.<br>
+eg echo class5 | sed 's/class/standard/'
+```bash
+$ command | sed 's/<oldWord>/<newWord>/'
+```
+
+## 26) tr 
+
+The tr command is used to translate the file content Eg from lower case to upper case.
+```bash
+$ command | tr <'old'> <'new'>
+```
+
+## 27) uniq 
+
+The uniq command is used to form a sorted list in which every word will occur only once.
+```bash
+$ command <fileName> | uniq 
+``` 
+## 28) wc 
+
+The wc command is used to count the lines, words, and characters in a file.<br>
+To display the complete count information of multiple files at once, specify the file names after space (' ').
+The '-l' option number of lines in a file.
+-w, --words:  print the word counts.
+      
+```bash
+$ wc <file name> 
+$ wc <file1> <file2>
+$ wc - l <file name>  
+```  
+
+## 29) od 
+
+The od command is used to display the content of a file in different s, such as hexadecimal, octal, and ASCII characters.
+```bash
+$ od -b <fileName>      // Octal format  
+$ od -t x1 <fileName>   // Hexa decimal format  
+$ od -c <fileName>     // ASCII character format 
+```  
+
+## 30) sort 
+
+The sort command is used to sort files in alphabetical order.
+```bash
+$ sort <file name>
+``` 
+
+## 31) find  
+
+The find command is used to find a particular file within a directory. It also supports various options to find a file such as byname, by type, by date, and more.
+(.) : For current directory name <br>
+(/) : For root<br>
+```bash
+$ find . -name "*.pdf"
+```   
+## 32) locate  
+
+The locate command is used to search a file by file name. It is quite similar to find command; the difference is that it is a background process. It searches the file in the database, whereas the find command searches in the file system. It is faster than the find command. To find the file with the locates command, keep your database updated.
+```bash
+$ locate <file name> 
+```
+
+## 33) date  
+The date command is used to display date, time, time zone, and more.
+```bash
+$ date
+```
+## 34) cal  
+The cal command is used to display the current month's calendar with the current date highlighted.
+```bash
+$ cal< 
+```   
+
+## 35) sleep  
+
+The sleep command is used to hold the terminal by the specified amount of time. By default, it takes time in seconds.
+```bash
+$ sleep <time>
+```       
+
+## 36) time  
+
+The time command is used to display the time to execute a command.
+```bash
+$ time
+```  
+
+## 37) zcat  
+The zcat command is used to display the compressed files.like zip gz etc.
+```bash
+$ zcat <file name>
+```  
+
+## 38) df 
+
+The df command is used to display the disk space used in the file system. It displays the output as in the number of used blocks, available blocks, and the mounted directory.
+```bash
+$ df
+```
+
+## 39) exit Command
+Linux exit command is used to exit from the current shell. It takes a parameter as a number and exits the shell with a return of status number.
+```bash
+$ exit
+```
+## 40) clear Command
+
+Linux clear command is used to clear the terminal screen.
+```bash
+$ clear
+```
+
+## 41) ip Command
+
+Linux ip command is an updated version of the ipconfig command. It is used to assign an IP address, initialize an interface, disable an interface.
+```bash
+$ ip a or ip addr
+```   
+
+## 42) host Command
+
+The host command is used to display the IP address for a given domain name and vice versa. It performs the DNS lookups for the DNS Query.
+```bash
+$ host <domain name> or <ip address>  
 ```
